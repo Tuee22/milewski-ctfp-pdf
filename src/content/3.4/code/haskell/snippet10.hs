@@ -1,3 +1,5 @@
-class Monad m where
+-- UPDATE NOTE: Modern Monad requires Applicative superclass
+-- Original¹⁸: class Monad m where return :: a -> m a
+class Applicative m => Monad m where
     (>>=) :: m a -> (a -> m b) -> m b
-    return :: a -> m a
+    -- UPDATE NOTE: return removed; use pure from Applicative instead

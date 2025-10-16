@@ -1,3 +1,5 @@
-class Monoid m where
+-- UPDATE NOTE: Modern Monoid requires Semigroup superclass
+-- Original³: class Monoid m where mappend :: m -> m -> m
+class Semigroup m => Monoid m where
     mempty :: m
-    mappend :: m -> m -> m
+    -- UPDATE NOTE: mappend deprecated; use (<>) from Semigroup instead

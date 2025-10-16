@@ -295,8 +295,9 @@ concatenation is also associative.
 
 An astute reader may notice that it would be easy to generalize this
 construction to any monoid, not just the string monoid. We would use
-\code{mappend} inside \code{compose} and \code{mempty} inside
-\code{identity} (in place of \code{+} and \code{""}). There really
+\code{(<>)}\footnote{Original¹⁶: ``\code{mappend}''} inside \code{compose} and \code{mempty} inside
+\code{identity} (in place of \code{+} and \code{""}). 
+\emph{UPDATE NOTE: Modern Haskell uses \code{(<>)} from \code{Semigroup} instead of \code{mappend}.} There really
 is no reason to limit ourselves to logging just strings. A good library
 writer should be able to identify the bare minimum of constraints that
 make the library work --- here the logging library's only requirement is

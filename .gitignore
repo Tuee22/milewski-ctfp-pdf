@@ -12,7 +12,6 @@ out/*
 *.fdb_latexmk
 *.bak*
 *.log
-*.pdf
 *.xdv
 *.gz
 *.pyg
