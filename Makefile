@@ -9,7 +9,7 @@ LATEXMK_COMMAND = $(TEXLIVE_RUN) latexmk $(LATEXMK_ARGS)
 rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
 
 ctfp:
-	cd src; $(LATEXMK_COMMAND) -jobname=ctfp ctfp-reader.tex
+	cd src; $(LATEXMK_COMMAND) -output-directory=.. -jobname=ctfp-modernized ctfp-reader.tex
 
 ctfp-ocaml:
 	cd src; $(LATEXMK_COMMAND) -jobname=ctfp-ocaml ctfp-reader-ocaml.tex

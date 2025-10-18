@@ -103,8 +103,7 @@ changing it.
 
 In Haskell we can define a type class for monoids --- a type for which
 there is a neutral element called \code{mempty} and a binary operation
-called \code{(<>)}\footnote{Original code: ``called \code{mappend}''}.
-\emph{UPDATE NOTE: Modern Haskell uses \code{(<>)} from \code{Semigroup} instead of the deprecated \code{mappend}.}
+called \code{(<>)}\footnote{Original code: ``called \code{mappend}''. Modern Haskell uses \code{(<>)} from \code{Semigroup} instead of the deprecated \code{mappend}.}.
 
 \src{snippet01}
 The type signature for a two-argument function,
@@ -119,9 +118,8 @@ right-associative), as in: \code{m -> (m -> m)}.
 We'll come back to this interpretation in a moment.
 
 Notice that, in Haskell, there is no way to express the monoidal
-properties of \code{mempty} and \code{(<>)}\footnote{Original code: ``\code{mempty} and \code{mappend}''} (i.e., the fact that
+properties of \code{mempty} and \code{(<>)}\footnote{See earlier note about \code{mappend}.} (i.e., the fact that
 \code{mempty} is neutral and that \code{(<>)} is associative).
-\emph{UPDATE NOTE: Modern Haskell uses \code{(<>)} from \code{Semigroup} class instead of \code{mappend}.}
 It's the responsibility of the programmer to make sure they are
 satisfied.
 
@@ -130,8 +128,7 @@ defining a new type, you don't have to specify its class up front. You
 are free to procrastinate and declare a given type to be an instance of
 some class much later. As an example, let's declare \code{String} to
 be a monoid by providing the implementation of \code{mempty} and
-\code{(<>)}\footnote{Original¹³: ``\code{mempty} and \code{mappend}''} 
-\emph{UPDATE NOTE: Modern Haskell requires both \code{Semigroup} and \code{Monoid} instances.} (this is, in fact, done for you in the standard
+\code{(<>)}\footnote{Original¹³: ``\code{mempty} and \code{mappend}''. Modern Haskell requires both \code{Semigroup} and \code{Monoid} instances.} (this is, in fact, done for you in the standard
 Prelude):
 
 \src{snippet02}
@@ -158,21 +155,21 @@ It's worth emphasizing that Haskell lets you express equality of
 functions, as in:
 
 \begin{snip}{haskell}
-(<>) = (++)  -- UPDATE NOTE: (<>) replaces mappend
+(<>) = (++)
 \end{snip}
-\emph{UPDATE NOTE: Modern Haskell uses \code{(<>)} from \code{Semigroup} instead of \code{mappend}.}\footnote{Original¹⁴: ``\code{mappend = (++)}''} 
+\footnote{See earlier note about \code{mappend}.} 
 Conceptually, this is different than expressing the equality of values
 produced by functions, as in:
 
 \begin{snip}{haskell}
-(<>) s1 s2 = (++) s1 s2  -- UPDATE NOTE: (<>) replaces mappend
+(<>) s1 s2 = (++) s1 s2
 \end{snip}
 The former translates into equality of morphisms in the category
 $\Hask$ (or $\Set$, if we ignore bottoms, which is the name
 for never-ending calculations). Such equations are not only more
 succinct, but can often be generalized to other categories. The latter
 is called \newterm{extensional} equality, and states the fact that for any
-two input strings, the outputs of \code{(<>)}\footnote{Original¹⁵: ``\code{mappend}''} and \code{(++)} are
+two input strings, the outputs of \code{(<>)}\footnote{See earlier note about \code{mappend}.} and \code{(++)} are
 the same. Since the values of arguments are sometimes called
 \newterm{points} (as in: the value of $f$ at point $x$), this is called
 point-wise equality. Function equality without specifying the arguments
